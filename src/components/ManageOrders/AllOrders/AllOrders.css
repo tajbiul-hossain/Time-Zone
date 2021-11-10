@@ -1,0 +1,28 @@
+.pricing .table tr > td,
+.pricing .table tr > th {
+  padding: 15px 30px;
+  border-radius: 3px;
+  border: 4px solid #fff;
+  font-weight: 600;
+}
+.pricing .table th {
+  background-color: #00aeff;
+  color: #fff;
+}
+.pricing .table td {
+  background-color: #f4f4f4;
+  color: #707070;
+}
+
+@media only screen and (max-width: 767px) {
+  .pricing .table tr > td,
+  .pricing .table tr > th {
+    padding: 15px 15px;
+  }
+  .pricing .table th {
+    font-size: 0.8rem;
+  }
+  .pricing .table td {
+    font-size: 0.7rem;
+  }
+}

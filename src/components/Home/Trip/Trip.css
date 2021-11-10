@@ -1,0 +1,40 @@
+.trip {
+  padding: 1.5rem;
+  margin-bottom: 30px;
+}
+
+.trip .trip-img img {
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.trip .trip-info {
+  padding-top: 16px;
+  text-align: start;
+}
+
+.trip .trip-info .trip-date span {
+  font-size: 14px;
+  font-weight: 400;
+  color: #7a838b;
+  display: block;
+}
+
+.trip .trip-info h3 {
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 0;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.trip:hover h3 {
+  color: #ff4a52;
+}
+
+@media only screen and (max-width: 767px) {
+}
+
+@media only screen and (max-width: 315px) {
+}

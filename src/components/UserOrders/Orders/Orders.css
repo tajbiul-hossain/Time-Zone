@@ -1,0 +1,41 @@
+.bookings {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  justify-content: center;
+}
+
+.modal-dialog .cancel-btn,
+.modal-dialog .confirm-btn {
+  padding: 0.5rem 0.7rem;
+}
+
+.modal-dialog .btn.default-btn::before {
+  background-color: transparent;
+}
+
+.modal-dialog .cancel-btn:focus,
+.modal-dialog .confirm-btn:focus {
+  box-shadow: none;
+}
+
+.modal-dialog .cancel-btn {
+  background-color: #ff4a52;
+}
+
+.modal-dialog .confirm-btn:hover,
+.modal-dialog .confirm-btn:focus,
+.modal-dialog .confirm-btn:active {
+  background-color: #1ec6b6;
+}
+
+@media only screen and (max-width: 992px) {
+  .bookings {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (max-width: 768px) {
+  .bookings {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

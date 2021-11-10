@@ -1,0 +1,10 @@
+.error-page {
+  color: #0b1c39;
+  background-color: #f0f0f2;
+  height: 100vh;
+}
+
+.error-code {
+  font-size: 7rem;
+  letter-spacing: 1rem;
+}

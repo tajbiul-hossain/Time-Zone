@@ -1,0 +1,34 @@
+.section-banner-head {
+  background-image: url("https://i.ibb.co/KGKVYnT/banner2.webp");
+  background-size: cover;
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-banner-title {
+  font-size: 7rem;
+  text-transform: capitalize;
+  letter-spacing: 0.5rem;
+  font-weight: 400;
+  line-height: 0.5;
+  color: #0b1c39;
+  margin-bottom: 1rem;
+}
+
+.section-banner-image {
+  width: 100%;
+  height: 40vh;
+}
+
+@media only screen and (max-width: 767px) {
+  .section-banner-title {
+    font-size: 5rem;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .section-banner-title {
+    font-size: 4rem;
+  }
+}

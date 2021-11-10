@@ -1,0 +1,17 @@
+.home-banner {
+  background-image: url("https://i.ibb.co/rm43HgX/banner.webp");
+  padding: 0 10rem;
+  background-size: cover;
+  height: 80vh;
+}
+
+.banner-title {
+  color: #fff;
+  font-size: 4.3rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+}
+
+.home-banner .btn.default-btn::before {
+  background-color: #ff2020;
+}

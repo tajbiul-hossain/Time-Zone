@@ -1,0 +1,101 @@
+.package-head {
+  position: relative;
+}
+
+.package-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Nothing You Could Do", cursive;
+  font-size: 7rem;
+  text-transform: capitalize;
+  letter-spacing: 0.5rem;
+  font-weight: 400;
+  line-height: 0.5;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.package-image {
+  width: 100%;
+  height: 40vh;
+}
+
+.detailed-price {
+  color: #ff4a52;
+  font-size: 2rem;
+}
+
+form .form-floating .form-control[readonly] {
+  background-color: #fff;
+}
+
+/* spinner */
+.loader {
+  position: relative;
+  height: 50vh;
+}
+
+.outer,
+.middle,
+.inner {
+  border: 3px solid transparent;
+  border-top-color: #ff4a52;
+  border-right-color: #ff4a52;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.outer {
+  width: 3.5em;
+  height: 3.5em;
+  margin-left: -1.75em;
+  margin-top: -1.75em;
+  animation: spin 2s linear infinite;
+}
+
+.middle {
+  width: 2.1em;
+  height: 2.1em;
+  margin-left: -1.05em;
+  margin-top: -1.05em;
+  animation: spin 1.75s linear reverse infinite;
+}
+
+.inner {
+  width: 0.8em;
+  height: 0.8em;
+  margin-left: -0.4em;
+  margin-top: -0.4em;
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .package-title {
+    font-size: 5rem;
+  }
+
+  .single-package form .form-floating .form-control,
+  .single-package form .form-floating .form-select {
+    width: 25rem;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .package-title {
+    font-size: 3rem;
+  }
+
+  .single-package form .form-floating .form-control,
+  .single-package form .form-floating .form-select {
+    width: 18rem;
+  }
+}
