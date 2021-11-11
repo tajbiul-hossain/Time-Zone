@@ -1,0 +1,67 @@
+form {
+  color: #0b1c39;
+}
+form .form-control,
+form .form-select {
+  width: 25rem;
+  border: 1px solid #0b1c39;
+}
+
+form .form-control:focus,
+form .form-select:focus {
+  box-shadow: none;
+  border: 1px solid #ff2020;
+}
+
+form .input-label {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #0b1c39;
+}
+
+.form-card {
+  width: 50%;
+  margin: 0 auto;
+  box-shadow: 0 0 30px 0 rgb(0 0 0 / 10%);
+  border-radius: 1rem;
+}
+
+form .auth-form .auth-btn,
+form .auth-form .google-btn {
+  padding: 0.9rem 0.7rem;
+  background-color: #4a4a4b;
+}
+form .auth-form .default-btn::before,
+form .auth-form .default-btn::before {
+  background-color: #ff2020;
+}
+
+form .auth-form .google-img {
+  width: 18%;
+}
+@media only screen and (max-width: 991px) {
+  .form-card {
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .form-card {
+    width: 90%;
+  }
+
+  form .form-control,
+  form .form-select {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .form-card {
+    width: 100%;
+  }
+
+  form .form-control,
+  form .form-select {
+    width: 100%;
+  }
+}

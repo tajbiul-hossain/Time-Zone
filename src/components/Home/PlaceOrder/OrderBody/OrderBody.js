@@ -10,19 +10,19 @@ function MyVerticallyCenteredModal(props) {
   return (
     <Modal
       {...props}
-      size="lg"
+      size="sm"
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Confirmation Message
+          Confirmation
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <p>
-          You have successfully booked this package. We will contact you soon.
-          Please be ready on the day of journey. Happy Travel.
+          Product is successfully added to cart. Please proceed to payment.
+          Happy Shopping.
         </p>
       </Modal.Body>
       <Modal.Footer>
@@ -35,55 +35,48 @@ function MyVerticallyCenteredModal(props) {
 }
 
 const OrderBody = () => {
-  const [service, setService] = useState({});
+  const [product, setProduct] = useState({});
   const [modalShow, setModalShow] = useState(false);
   const [loading, setLoading] = useState(true);
   const { user } = useAuth();
   const { productId } = useParams();
   const history = useHistory();
 
-  const { name, price, img } = service;
+  const { name, price, img, shortDesc } = product;
   const phoneRef = useRef();
-  const adultRef = useRef();
-  const childRef = useRef();
-  const roomRef = useRef();
-  const journeyRef = useRef();
-  const returnRef = useRef();
+  const addressRef = useRef();
+  const quantityRef = useRef();
 
   useEffect(() => {
     fetch(`http://localhost:5000/products/${productId}`)
       .then((res) => res.json())
       .then((data) => {
-        setService(data);
+        setProduct(data);
         setLoading(false);
       });
   }, [productId]);
 
   const handleConfirmBooking = (e) => {
-    const packageName = name;
+    const productName = name;
     const userName = user.displayName;
     const userEmail = user.email;
     const phone = phoneRef.current.value;
-    const adult = adultRef.current.value;
-    const child = childRef.current.value;
-    const room = roomRef.current.value;
-    const journeyDate = journeyRef.current.value;
-    const returnDate = returnRef.current.value;
+    const address = addressRef.current.value;
+    const quantity = quantityRef.current.value;
     const status = "Pending";
+    const color = "#ff2020";
 
     const newBooking = {
+      productName,
       userName,
       userEmail,
       phone,
-      adult,
-      child,
-      room,
-      journeyDate,
-      returnDate,
-      packageName,
+      address,
+      quantity,
       price,
       img,
       status,
+      color,
     };
 
     fetch("http://localhost:5000/order", {
@@ -114,22 +107,29 @@ const OrderBody = () => {
     );
 
   return (
-    <div className="single-package">
-      <div className="package-head">
-        <img className="package-image" src={img} alt="" />
-        <h2 className="package-title">{name}</h2>
+    <div className="bg-white place-order">
+      <div className="section-banner-head">
+        <h2 className="section-banner-title">Place Order</h2>
       </div>
       <div className="container">
         <div className="row mt-5">
-          <div className="col-12 col-md-4 text-start">
-            <h2 className="detailed-price">Cost: ${price}/P</h2>
-            <h6>(4 NIGHTS / 5 DAYS)</h6>
+          <div className="col-12 col-md-6 text-start d-flex align-items-center">
+            <div className="product px-5 pt-5 pb-3">
+              <div className="text-center">
+                <img src={img} alt="" width="60%" />
+              </div>
+              <div className="product-info mt-3">
+                <h5 className="detailed-price mt-0">${price}</h5>
+                <h3>{name}</h3>
+                <p>{shortDesc}</p>
+              </div>
+            </div>
           </div>
-          <div className="col-12 col-md-8 p-3">
+          <div className="col-12 col-md-6 p-3">
             <Form className="d-flex" onSubmit={handleConfirmBooking}>
               <div>
                 <Row className="g-2">
-                  <Col className="d-flex justify-content-center" md>
+                  <Col className="d-flex justify-content-center col-12">
                     <Form.Floating className="mb-3">
                       <Form.Control
                         id="floatingInputCustom"
@@ -140,7 +140,7 @@ const OrderBody = () => {
                       <label htmlFor="floatingInputCustom">Name</label>
                     </Form.Floating>
                   </Col>
-                  <Col className="d-flex justify-content-center" md>
+                  <Col className="d-flex justify-content-center col-12">
                     <Form.Floating className="mb-3">
                       <Form.Control
                         id="floatingInputCustom"
@@ -151,7 +151,7 @@ const OrderBody = () => {
                       <label htmlFor="floatingInputCustom">Email address</label>
                     </Form.Floating>
                   </Col>
-                  <Col className="d-flex justify-content-center" md>
+                  <Col className="d-flex justify-content-center col-12">
                     <Form.Floating className="mb-3">
                       <Form.Control
                         id="floatingInputCustom"
@@ -161,83 +161,30 @@ const OrderBody = () => {
                       <label htmlFor="floatingInputCustom">Phone</label>
                     </Form.Floating>
                   </Col>
-                  <Col className="d-flex justify-content-center" md>
-                    <Form.Floating className="mb-3">
-                      <Form.Select
-                        aria-label="Floating label select example"
-                        id="floatingInputCustom"
-                        type="text"
-                        ref={adultRef}
-                      >
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                      </Form.Select>
-                      <label htmlFor="floatingInputCustom">Adult(s)</label>
-                    </Form.Floating>
-                  </Col>
-                  <Col className="d-flex justify-content-center" md>
-                    <Form.Floating className="mb-3">
-                      <Form.Select
-                        aria-label="Floating label select example"
-                        id="floatingInputCustom"
-                        type="text"
-                        ref={childRef}
-                      >
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                      </Form.Select>
-                      <label htmlFor="floatingInputCustom">Child(s)</label>
-                    </Form.Floating>
-                  </Col>
-                  <Col className="d-flex justify-content-center" md>
-                    <Form.Floating className="mb-3">
-                      <Form.Select
-                        aria-label="Floating label select example"
-                        id="floatingInputCustom"
-                        type="text"
-                        ref={roomRef}
-                      >
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                      </Form.Select>
-                      <label htmlFor="floatingInputCustom">Room(s)</label>
-                    </Form.Floating>
-                  </Col>
-                  <Col className="d-flex justify-content-center" md>
+                  <Col className="d-flex justify-content-center col-12">
                     <Form.Floating className="mb-3">
                       <Form.Control
                         id="floatingInputCustom"
-                        type="date"
-                        ref={journeyRef}
+                        type="text"
+                        ref={addressRef}
                       />
-                      <label htmlFor="floatingInputCustom">Journey Date</label>
+                      <label htmlFor="floatingInputCustom">Address</label>
                     </Form.Floating>
                   </Col>
-                  <Col className="d-flex justify-content-center" md>
+                  <Col className="d-flex justify-content-center col-12">
                     <Form.Floating className="mb-3">
                       <Form.Control
                         id="floatingInputCustom"
-                        type="date"
-                        ref={returnRef}
+                        type="number"
+                        ref={quantityRef}
                       />
-                      <label htmlFor="floatingInputCustom">Return Date</label>
+                      <label htmlFor="floatingInputCustom">Quantity</label>
                     </Form.Floating>
                   </Col>
                 </Row>
 
                 <button className="btn default-btn mt-3" type="submit">
-                  Confirm Booking
+                  Add to Cart
                 </button>
               </div>
             </Form>
@@ -248,7 +195,7 @@ const OrderBody = () => {
         show={modalShow}
         onHide={() => {
           setModalShow(false);
-          history.push("/my-orders");
+          history.push("/dashboard");
         }}
         backdrop="static"
         keyboard={false}

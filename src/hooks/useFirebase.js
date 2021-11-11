@@ -16,55 +16,68 @@ initializeAuthentication();
 
 const useFirebase = () => {
   const [user, setUser] = useState({});
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [redirectURL, setRedirectURL] = useState("");
   const [token, setToken] = useState("");
+  const [admin, setAdmin] = useState(false);
   const auth = getAuth();
   const googleProvider = new GoogleAuthProvider();
 
   const signInUsingGoogle = () => {
+    setIsLoading(true);
     return signInWithPopup(auth, googleProvider).finally(() => {
-      setLoading(false);
+      setIsLoading(false);
     });
   };
 
   const signUpWithEmailAndPassword = (email, password) => {
+    setIsLoading(true);
     return createUserWithEmailAndPassword(auth, email, password).finally(() => {
-      setLoading(false);
+      setIsLoading(false);
     });
   };
 
   const setUserName = (name, history, redirect_url) => {
-    setLoading(true);
+    setIsLoading(true);
     updateProfile(auth.currentUser, {
       displayName: name,
       photoURL:
         "https://github.com/tajbiul-hossain/dental-depot-images/blob/main/images/icon/avatar.png?raw=true",
     }).then((result) => {
       history.push(redirect_url);
-      setLoading(false);
+      setIsLoading(false);
     });
   };
 
   const logInWithEmailAndPassword = (email, password) => {
-    return signInWithEmailAndPassword(auth, email, password);
+    setIsLoading(true);
+    return signInWithEmailAndPassword(auth, email, password).finally(() => {
+      setIsLoading(false);
+    });
   };
 
   const logOut = () => {
-    setLoading(true);
+    setIsLoading(true);
     signOut(auth)
       .then(() => {
         setUser({});
       })
-      .finally(() => setLoading(false));
+      .finally(() => setIsLoading(false));
+  };
+
+  const saveUser = (email, displayName, method) => {
+    const newUser = { email, displayName };
+    fetch("http://localhost:5000/users", {
+      method: method,
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newUser),
+    }).then();
   };
 
   const updateRedirectURL = (redirect_url) => {
     setRedirectURL(redirect_url);
-  };
-
-  const updateLoadingState = (loadingState) => {
-    setLoading(loadingState);
   };
 
   useEffect(() => {
@@ -75,14 +88,23 @@ const useFirebase = () => {
       } else {
         setUser({});
       }
-      setLoading(false);
+      if (token) {
+        setIsLoading(false);
+      }
     });
     return () => unsubscribe;
-  }, [auth]);
+  }, [auth, token]);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/users/${user.email}`)
+      .then((res) => res.json())
+      .then((data) => setAdmin(data.admin));
+  }, [user.email]);
 
   return {
     user,
-    loading,
+    admin,
+    isLoading,
     redirectURL,
     token,
     signInUsingGoogle,
@@ -90,8 +112,8 @@ const useFirebase = () => {
     logInWithEmailAndPassword,
     logOut,
     setUserName,
+    saveUser,
     updateRedirectURL,
-    updateLoadingState,
   };
 };
 

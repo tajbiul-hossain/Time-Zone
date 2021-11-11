@@ -1,0 +1,22 @@
+.manage-orders .cancel-btn,
+.manage-orders .confirm-btn {
+  padding: 0.9rem 0.7rem;
+}
+
+.manage-orders .cancel-btn::before {
+  background-color: #ff2020;
+}
+.manage-orders .confirm-btn {
+  background-color: #ff2020;
+}
+.manage-orders .confirm-btn::before {
+  background-color: #4a4a4b;
+}
+
+.manage-orders .red {
+  color: #ff2020;
+}
+
+.manage-orders .green {
+  color: #0cb931;
+}

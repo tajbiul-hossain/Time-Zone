@@ -1,0 +1,11 @@
+.review-section {
+  background-color: #fff;
+}
+
+.review-section .btn.default-btn::before {
+  background-color: #ff2020;
+}
+
+.review-section .container {
+  padding: 2rem 0 6rem;
+}

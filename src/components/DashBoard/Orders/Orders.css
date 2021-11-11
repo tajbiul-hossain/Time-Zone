@@ -1,0 +1,24 @@
+.my-orders .cancel-btn,
+.modal-dialog .cancel-btn,
+.modal-dialog .confirm-btn {
+  padding: 0.9rem 0.7rem;
+}
+
+.modal-dialog .cancel-btn:focus,
+.modal-dialog .confirm-btn:focus {
+  box-shadow: none;
+}
+
+.my-orders .cancel-btn::before,
+.modal-dialog .cancel-btn::before,
+.modal-dialog .confirm-btn {
+  background-color: #ff2020;
+}
+
+.my-orders .red {
+  color: #ff2020;
+}
+
+.my-orders .green {
+  color: #0cb931;
+}

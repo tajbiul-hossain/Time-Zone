@@ -1,0 +1,14 @@
+.make-admin .cancel-btn,
+.make-admin .confirm-btn {
+  padding: 0.9rem 0.7rem;
+}
+
+.make-admin .cancel-btn::before {
+  background-color: #ff2020;
+}
+.make-admin .confirm-btn {
+  background-color: #ff2020;
+}
+.make-admin .confirm-btn::before {
+  background-color: #4a4a4b;
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
-import { Link, useLocation } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import "./Header.css";
 
@@ -11,8 +11,14 @@ const Header = () => {
     <>
       <Navbar variant="dark" collapseOnSelect expand="lg">
         <Container>
-          <Navbar.Brand href="/">
-            Time <span style={{ color: "#ff2020" }}>Zone</span>
+          <Navbar.Brand>
+            <NavLink
+              as={Link}
+              to="/"
+              style={{ textDecoration: "none", color: "#fff" }}
+            >
+              Time <span style={{ color: "#ff2020" }}>Zone</span>
+            </NavLink>
           </Navbar.Brand>
           <Navbar.Toggle>
             <i className="fas fa-ellipsis-v"></i>
@@ -32,35 +38,9 @@ const Header = () => {
             </Nav.Link>
             {user?.email ? (
               <div className="d-lg-flex align-items-center">
-                <li className="dropdown">
-                  <Nav.Link>
-                    Profile <i className="fas fa-angle-down"></i>
-                  </Nav.Link>
-                  <ul className="submenu p-0">
-                    <div className="d-flex align-items-center justify-content-around">
-                      <img className="user-image" src={user.photoURL} alt="" />
-                      <h6 className="username p-0">{user.displayName}</h6>
-                    </div>
-                    <NavDropdown.Divider />
-                    <Nav.Link as={Link} to="/my-orders" className="ps-3 pb-2">
-                      <span>My Orders</span>
-                    </Nav.Link>
-                    <Nav.Link
-                      as={Link}
-                      to="/manage-orders"
-                      className="ps-3 pb-2"
-                    >
-                      <span>Manage Orders</span>
-                    </Nav.Link>
-                    <Nav.Link
-                      as={Link}
-                      to="/add-new-product"
-                      className="ps-3 pb-2"
-                    >
-                      <span>Add Product</span>
-                    </Nav.Link>
-                  </ul>
-                </li>
+                <Nav.Link as={Link} to="/dashboard">
+                  <span>Dashboard</span>
+                </Nav.Link>
                 <button
                   onClick={logOut}
                   className="btn default-btn register-btn"

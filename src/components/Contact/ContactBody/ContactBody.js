@@ -12,8 +12,8 @@ const ContactBody = () => {
           title="map"
           style={{ border: "0", width: "100%", height: "350px" }}
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.8014979007!2d90.41423635040795!3d23.718781684529322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8546417977d%3A0xe379c4c930d9fca8!2sRankin%20St%2C%20Dhaka!5e0!3m2!1sen!2sbd!4v1635639981456!5m2!1sen!2sbd"
-          frameborder="0"
-          allowfullscreen
+          frameBorder="0"
+          allowFullScreen
         ></iframe>
         <div className="container text-start font-link">
           <div className="row mt-4">

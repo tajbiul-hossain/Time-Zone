@@ -31,36 +31,6 @@
   color: #ff2020;
 }
 
-.navbar .dropdown {
-  display: inline-block;
-  position: relative;
-}
-
-.navbar .dropdown a {
-  text-decoration: none;
-}
-
-.navbar .dropdown .submenu {
-  position: absolute;
-  left: 0;
-  top: 160%;
-  background: #141414;
-  width: 200px;
-  z-index: 2;
-  box-shadow: 0 0 10px rgb(0 0 0 / 2%);
-  opacity: 0;
-  visibility: hidden;
-  text-align: left;
-  transition: 0.3s;
-  list-style: none;
-}
-
-.navbar .dropdown:hover > .submenu {
-  opacity: 1;
-  visibility: visible;
-  top: 225%;
-}
-
 .navbar .navbar-collapse {
   justify-content: end;
 }
@@ -68,6 +38,10 @@
 .navbar .register-btn {
   background-color: #ff2020;
   padding: 1.2rem 0.7rem;
+}
+
+.navbar .register-btn:hover {
+  color: #fff;
 }
 
 .navbar .btn.default-btn::before {
@@ -110,7 +84,7 @@
 
 @media only screen and (max-width: 991px) {
   .navbar .register-btn {
-    padding: 0.5rem 0.7rem !important;
+    padding: 0.9rem 0.7rem !important;
   }
 
   .navbar .navbar-collapse {
@@ -121,20 +95,11 @@
     padding: 0;
   }
 
-  .navbar .nav-link,
-  .navbar .dropdown a {
+  .navbar .nav-link {
     padding-bottom: 10px;
   }
 
   .navbar .dropdown {
     display: block;
-  }
-
-  .navbar .dropdown a {
-    padding-left: 0;
-  }
-
-  .navbar .dropdown:hover > .submenu {
-    top: 100%;
   }
 }

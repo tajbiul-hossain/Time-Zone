@@ -7,10 +7,14 @@ const Products = () => {
   const [packages, setPackages] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch("http://localhost:5000/products", {
+      headers: {
+        items: "6",
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
-        setPackages(data.slice(0, 6));
+        setPackages(data);
         setLoading(false);
       });
   }, []);

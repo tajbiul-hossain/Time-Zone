@@ -3,13 +3,17 @@ import Product from "../../Home/Product/Product";
 import "./ShopBody.css";
 
 const ShopBody = () => {
-  const [packages, setPackages] = useState([]);
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch("http://localhost:5000/products", {
+      headers: {
+        items: "0",
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
-        setPackages(data);
+        setProducts(data);
         setLoading(false);
       });
   }, []);
@@ -30,7 +34,7 @@ const ShopBody = () => {
       </div>
       <div className="container pt-5">
         <div className="service-container">
-          {packages.map((product) => (
+          {products.map((product) => (
             <Product key={product._id} product={product}></Product>
           ))}
         </div>
