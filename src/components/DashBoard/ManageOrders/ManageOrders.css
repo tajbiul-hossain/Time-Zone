@@ -20,3 +20,25 @@
 .manage-orders .green {
   color: #0cb931;
 }
+
+@media only screen and (max-width: 1200px) {
+  .manage-orders .section-banner-title {
+    font-size: 5.4rem;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .manage-orders .section-banner-title {
+    font-size: 5rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .container.manage-orders {
+    width: 100% !important;
+    margin: 0;
+  }
+  .manage-orders .section-banner-title {
+    font-size: 3.7rem;
+  }
+}

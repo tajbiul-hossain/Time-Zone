@@ -1,5 +1,9 @@
 .place-order .product {
+  width: 80%;
   box-shadow: 0 10px 20px rgb(0 0 0 / 15%);
+}
+.place-order .product img {
+  width: 100%;
 }
 
 .product .product-info .detailed-price {
@@ -10,8 +14,14 @@
 form .form-floating .form-control[readonly] {
   background-color: #fff;
 }
+
 form .form-floating label {
   color: #141414;
+}
+
+.place-order form .form-floating .form-control,
+.place-order form .form-floating .form-select {
+  width: 30rem;
 }
 
 .place-order .btn.default-btn::before {
@@ -66,23 +76,39 @@ form .form-floating label {
   }
 }
 
-@media only screen and (max-width: 767px) {
-  .product-title {
-    font-size: 5rem;
+@media only screen and (max-width: 991px) {
+  .place-order .product {
+    width: 100%;
   }
 
-  form .form-floating .form-control,
-  form .form-floating .form-select {
-    width: 25rem;
+  .place-order form .form-floating .form-control,
+  .place-order form .form-floating .form-select {
+    width: 22rem;
   }
 }
-@media only screen and (max-width: 450px) {
-  .product-title {
-    font-size: 3rem;
+
+@media only screen and (max-width: 768px) {
+  .place-order .product {
+    width: 70%;
+    margin: 0 auto 1rem;
   }
 
-  form .form-floating .form-control,
-  form .form-floating .form-select {
-    width: 18rem;
+  .place-order .product img {
+    width: 70%;
+  }
+
+  .place-order .product-info .product-title {
+    font-size: 1.4rem;
+  }
+
+  .place-order form .form-floating .form-control,
+  .place-order form .form-floating .form-select {
+    width: 30rem;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .place-order form .form-floating .form-control,
+  .place-order form .form-floating .form-select {
+    width: 20rem;
   }
 }

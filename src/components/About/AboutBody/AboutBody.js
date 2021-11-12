@@ -9,28 +9,24 @@ const AboutBody = () => {
         <h1 className="py-5 fw-normal">Our Story</h1>
         <div className="w-75 mx-auto">
           <p style={{ color: "#7a838b", textAlign: "justify" }}>
-            “Travel is the main thing you purchase that makes you more
-            extravagant”. We, at ‘Travelo’, swear by this and put stock in
-            satisfying travel dreams that make you perpetually rich constantly.
+            Time Zone is one of the oldest and most reputable mechanical
+            watchmakers that exists today, specializing in the production of
+            handmade limited edition timepieces. All watches are limited in
+            production to 100 pieces and exclusively sold on this website. To
+            view the collections in person, please visit our showroom.
             <br />
             <br />
-            We have been moving excellent encounters for a considerable length
-            of time through our cutting-edge planned occasion bundles and other
-            fundamental travel administrations. We rouse our clients to carry on
-            with a rich life, brimming with extraordinary travel encounters.
+            ‍Time Zone (TZ) was established in 1998 with the dream of starting a
+            watch company. While initially built on the custom production of
+            gold bespoke timepieces, TZ has established three signature
+            collections (Masterpiece, Limited, Mission) over the past two
+            decades that remain freshly updated year by year. This historic
+            company is now entering a new phase, as our young and passionate
+            president, intends to scale the awareness of what pure American
+            watchmaking has to offer.
             <br />
             <br />
-            Through our exceptionally curated occasion bundles, we need to take
-            you on an adventure where you personally enjoy the stunning
-            magnificence of America and far-off terrains. We need you to observe
-            sensational scenes that are a long way past your creative ability.
-            <br />
-            <br />
-            The powerful inclination of American voyagers to travel more
-            nowadays is something that keeps us inspired to satisfy our vacation
-            necessities. Our vision to give you a consistent occasion encounter
-            makes us one of the main visit administrators in the regularly
-            extending travel industry.
+            Join us in the rejuvenation of one of America's oldest crafts.
           </p>
           <div className="row my-5">
             <div className="col-12 col-md-6 pe-md-0">
@@ -38,25 +34,36 @@ const AboutBody = () => {
                 <div className="col-12">
                   <img
                     className="img-fluid"
-                    src="https://i.ibb.co/4st9jhH/about1.jpg"
+                    src="https://i.ibb.co/jHJFypT/about4.webp"
                     alt=""
                   />
                 </div>
                 <div className="col-12">
                   <img
                     className="img-fluid"
-                    src="https://i.ibb.co/Symm3kj/about3.jpg"
+                    src="https://i.ibb.co/4YNvvSq/about1.webp"
                     alt=""
                   />
                 </div>
               </div>
             </div>
             <div className="col-12 col-md-6 ps-md-0">
-              <img
-                className="img-fluid h-100"
-                src="https://i.ibb.co/mNdmWQr/about2.webp"
-                alt=""
-              />
+              <div className="row">
+                <div className="col-12">
+                  <img
+                    className="img-fluid"
+                    src="https://i.ibb.co/LSfVTDF/about2.webp"
+                    alt=""
+                  />
+                </div>
+                <div className="col-12">
+                  <img
+                    className="img-fluid"
+                    src="https://i.ibb.co/W0ZYKvc/about3.jpg"
+                    alt=""
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -15,3 +15,18 @@
 .home-banner .btn.default-btn::before {
   background-color: #ff2020;
 }
+
+@media only screen and (max-width: 768px) {
+  .home-banner {
+    padding: 0;
+  }
+  .banner-title {
+    font-size: 4rem;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .banner-title {
+    font-size: 3rem;
+  }
+}

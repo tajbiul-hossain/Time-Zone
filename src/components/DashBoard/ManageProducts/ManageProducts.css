@@ -1,3 +1,7 @@
+.manage-products .section-banner-title {
+  font-size: 4.5rem;
+}
+
 .manage-products .cancel-btn,
 .manage-products .confirm-btn {
   padding: 0.9rem 0.7rem;
@@ -19,4 +23,16 @@
 
 .manage-products .green {
   color: #0cb931;
+}
+
+@media only screen and (max-width: 991px) {
+  .manage-products .section-banner-title {
+    font-size: 3.8rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .manage-products .section-banner-title {
+    font-size: 3.2rem;
+  }
 }

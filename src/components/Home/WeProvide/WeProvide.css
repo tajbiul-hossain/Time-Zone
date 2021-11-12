@@ -1,0 +1,32 @@
+.feature .far,
+.feature .fas {
+  color: #ff2020;
+}
+
+.feature h3 {
+  font-size: 22px;
+  font-weight: 400;
+  color: #4a4a4b;
+  margin-top: 1rem;
+}
+
+.feature p {
+  font-size: 16px;
+  font-weight: 400;
+  color: #6e6e6e;
+  line-height: 28px;
+}
+
+.review-count {
+  color: #0b1c39;
+  margin-top: 100px;
+}
+
+.review-count h1 {
+  color: #ff2020;
+  font-size: 60px;
+  font-weight: 100;
+}
+.review-count p {
+  font-weight: 300;
+}

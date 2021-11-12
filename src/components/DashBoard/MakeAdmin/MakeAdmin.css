@@ -12,3 +12,15 @@
 .make-admin .confirm-btn::before {
   background-color: #4a4a4b;
 }
+
+@media only screen and (max-width: 991px) {
+  .make-admin .section-banner-title {
+    font-size: 5rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .make-admin .section-banner-title {
+    font-size: 4rem;
+  }
+}

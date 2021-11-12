@@ -9,7 +9,7 @@ const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const size = 3;
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch("https://still-woodland-16821.herokuapp.com/reviews")
       .then((res) => res.json())
       .then((data) => {
         setReviews(data.reviews);
@@ -30,12 +30,12 @@ const Reviews = () => {
     );
   }
   return (
-    <div>
+    <div className="py-5">
       <div>
-        <h2 className="mt-5 section-heading">Customer Reviews</h2>
+        <h2 className="section-heading text-white">Customer Reviews</h2>
         <div className="heading-underline"></div>
       </div>
-      <Carousel className="container py-5">
+      <Carousel className="container pb-5">
         {[...Array(carouselItemCount).keys()].map((i) => (
           <Carousel.Item key={i} interval={3000}>
             <ReviewGroup

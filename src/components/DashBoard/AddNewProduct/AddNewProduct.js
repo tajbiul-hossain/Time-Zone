@@ -39,7 +39,7 @@ const AddNewProduct = () => {
 
     const newProduct = { name, shortDesc, img, price };
 
-    fetch("http://localhost:5000/product", {
+    fetch("https://still-woodland-16821.herokuapp.com/product", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -40,7 +40,7 @@ const MakeAdmin = () => {
   const { token } = useAuth();
 
   useEffect(() => {
-    const uri = "http://localhost:5000/users";
+    const uri = "https://still-woodland-16821.herokuapp.com/users";
     fetch(uri)
       .then((res) => res.json())
       .then((data) => {
@@ -52,7 +52,7 @@ const MakeAdmin = () => {
   //update user role
   const handlePromoteUser = (email) => {
     const user = { email };
-    const url = "http://localhost:5000/users/admin";
+    const url = "https://still-woodland-16821.herokuapp.com/users/admin";
     fetch(url, {
       method: "PUT",
       headers: {

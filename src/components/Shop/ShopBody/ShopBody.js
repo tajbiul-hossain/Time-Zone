@@ -6,7 +6,7 @@ const ShopBody = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("http://localhost:5000/products", {
+    fetch("https://still-woodland-16821.herokuapp.com/products", {
       headers: {
         items: "0",
       },

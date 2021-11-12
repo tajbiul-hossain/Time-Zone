@@ -3,8 +3,8 @@ import StarRatings from "react-star-ratings";
 
 const Review = ({ review }) => {
   return (
-    <div className="col-md-4">
-      <div className="card">
+    <div className="col-md-4 mb-2">
+      <div className="card" style={{ height: "100%" }}>
         <div className="card-body">
           <div className="review-details">
             <p>

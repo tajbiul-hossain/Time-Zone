@@ -74,7 +74,7 @@ const ManageProducts = () => {
   const [productId, setProductId] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/products", {
+    fetch("https://still-woodland-16821.herokuapp.com/products", {
       headers: {
         items: "0",
       },
@@ -93,7 +93,7 @@ const ManageProducts = () => {
 
   //Delete Booking
   const handleDeleteBooking = (id) => {
-    const url = `http://localhost:5000/product/${id}`;
+    const url = `https://still-woodland-16821.herokuapp.com/product/${id}`;
     fetch(url, {
       method: "delete",
     })

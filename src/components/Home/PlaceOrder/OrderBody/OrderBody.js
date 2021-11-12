@@ -48,7 +48,7 @@ const OrderBody = () => {
   const quantityRef = useRef();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/products/${productId}`)
+    fetch(`https://still-woodland-16821.herokuapp.com/products/${productId}`)
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);
@@ -79,7 +79,7 @@ const OrderBody = () => {
       color,
     };
 
-    fetch("http://localhost:5000/order", {
+    fetch("https://still-woodland-16821.herokuapp.com/order", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -116,11 +116,11 @@ const OrderBody = () => {
           <div className="col-12 col-md-6 text-start d-flex align-items-center">
             <div className="product px-5 pt-5 pb-3">
               <div className="text-center">
-                <img src={img} alt="" width="60%" />
+                <img src={img} alt="" />
               </div>
               <div className="product-info mt-3">
                 <h5 className="detailed-price mt-0">${price}</h5>
-                <h3>{name}</h3>
+                <h3 className="product-title">{name}</h3>
                 <p>{shortDesc}</p>
               </div>
             </div>

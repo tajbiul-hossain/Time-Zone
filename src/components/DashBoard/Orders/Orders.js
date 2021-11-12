@@ -77,7 +77,7 @@ const Orders = () => {
   const history = useHistory();
 
   useEffect(() => {
-    const uri = `http://localhost:5000/userorders?email=${user.email}`;
+    const uri = `https://still-woodland-16821.herokuapp.com/userorders?email=${user.email}`;
     fetch(uri, {
       headers: {
         authorization: `Bearer ${token}`,
@@ -103,7 +103,7 @@ const Orders = () => {
 
   //Delete Booking
   const handleDeleteOrder = (id) => {
-    const url = `http://localhost:5000/order/${id}`;
+    const url = `https://still-woodland-16821.herokuapp.com/order/${id}`;
     fetch(url, {
       method: "delete",
     })
@@ -133,57 +133,67 @@ const Orders = () => {
       <div className="section-banner-head">
         <h2 className="section-banner-title">My Orders</h2>
       </div>
-      <div className="mt-3">
-        <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell>Product Name</TableCell>
-                <TableCell align="right">Price</TableCell>
-                <TableCell align="right">Quantity</TableCell>
-                <TableCell align="right">Total</TableCell>
-                <TableCell align="right">Status</TableCell>
-                <TableCell align="right">Cancel Order</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {orders.map((order) => (
-                <TableRow
-                  key={order._id}
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                >
-                  <TableCell component="th" scope="row">
-                    {order.productName}
-                  </TableCell>
-                  <TableCell align="right">${order.price}</TableCell>
-                  <TableCell align="right">{order.quantity}</TableCell>
-                  <TableCell align="right">
-                    ${parseInt(order.price) * parseInt(order.quantity)}
-                  </TableCell>
-                  <TableCell
-                    align="right"
-                    className={order.status === "Pending" ? "red" : "green"}
-                  >
-                    {order.status}
-                  </TableCell>
-                  <TableCell align="right">
-                    <button
-                      className={
-                        order.status === "Pending"
-                          ? "btn default-btn cancel-btn"
-                          : "btn default-btn cancel-btn disabled"
-                      }
-                      onClick={() => showModal(order._id)}
-                    >
-                      Cancel
-                    </button>
-                  </TableCell>
+      {orders.length === 0 && (
+        <div
+          className="d-flex justify-content-center align-items-center"
+          style={{ height: "50vh" }}
+        >
+          <h3>You haven't ordered anything yet!</h3>
+        </div>
+      )}
+      {orders.length > 0 && (
+        <div className="mt-3">
+          <TableContainer component={Paper}>
+            <Table sx={{ minWidth: 650 }} aria-label="simple table">
+              <TableHead>
+                <TableRow>
+                  <TableCell>Product Name</TableCell>
+                  <TableCell align="right">Price</TableCell>
+                  <TableCell align="right">Quantity</TableCell>
+                  <TableCell align="right">Total</TableCell>
+                  <TableCell align="right">Status</TableCell>
+                  <TableCell align="right">Cancel Order</TableCell>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </div>
+              </TableHead>
+              <TableBody>
+                {orders.map((order) => (
+                  <TableRow
+                    key={order._id}
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  >
+                    <TableCell component="th" scope="row">
+                      {order.productName}
+                    </TableCell>
+                    <TableCell align="right">${order.price}</TableCell>
+                    <TableCell align="right">{order.quantity}</TableCell>
+                    <TableCell align="right">
+                      ${parseInt(order.price) * parseInt(order.quantity)}
+                    </TableCell>
+                    <TableCell
+                      align="right"
+                      className={order.status === "Pending" ? "red" : "green"}
+                    >
+                      {order.status}
+                    </TableCell>
+                    <TableCell align="right">
+                      <button
+                        className={
+                          order.status === "Pending"
+                            ? "btn default-btn cancel-btn"
+                            : "btn default-btn cancel-btn disabled"
+                        }
+                        onClick={() => showModal(order._id)}
+                      >
+                        Cancel
+                      </button>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </div>
+      )}
       <DialogModal
         show={dialogModalShow}
         onHide={() => setDialogModalShow(false)}

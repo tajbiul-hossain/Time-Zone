@@ -15,6 +15,7 @@
   line-height: 0.5;
   color: #0b1c39;
   margin-bottom: 1rem;
+  white-space: nowrap;
 }
 
 .section-banner-image {
@@ -22,13 +23,18 @@
   height: 40vh;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 768px) {
   .section-banner-title {
     font-size: 5rem;
   }
 }
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 576px) {
   .section-banner-title {
-    font-size: 4rem;
+    font-size: 3.7rem;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .section-banner-title {
+    font-size: 2.3rem;
   }
 }

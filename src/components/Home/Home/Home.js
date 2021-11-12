@@ -1,11 +1,10 @@
 import React from "react";
-import Banner from "../Banner/Banner";
-import RecentTrips from "../RecentTrips/RecentTrips";
-import Products from "../Products/Products";
 import Header from "../../Shared/Header/Header";
-import Footer from "../../Shared/Footer/Footer";
+import Banner from "../Banner/Banner";
+import Products from "../Products/Products";
 import Reviews from "../Reviews/Reviews/Reviews";
-import "./Home.css";
+import WeProvide from "../WeProvide/WeProvide";
+import Footer from "../../Shared/Footer/Footer";
 const Home = () => {
   return (
     <div>
@@ -13,7 +12,7 @@ const Home = () => {
       <Banner />
       <Products />
       <Reviews />
-      <RecentTrips />
+      <WeProvide />
       <Footer />
     </div>
   );

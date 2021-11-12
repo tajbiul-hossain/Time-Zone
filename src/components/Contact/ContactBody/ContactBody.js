@@ -19,7 +19,7 @@ const ContactBody = () => {
           <div className="row mt-4">
             <div
               className="col-md-5 text-white d-flex flex-column justify-content-center p-md-5 p-3 mb-4"
-              style={{ backgroundColor: "#ff4a52" }}
+              style={{ backgroundColor: "#222629" }}
             >
               <div>
                 <h5 className="fw-bold">Address</h5>
@@ -38,7 +38,7 @@ const ContactBody = () => {
               </div>
               <div>
                 <h5 className="fw-bold">Email</h5>
-                <p className="fw-light">info.travelo@gmail.com</p>
+                <p className="fw-light">info.timezone@gmail.com</p>
               </div>
             </div>
             <div className="col-md-7 p-0 ps-md-4">

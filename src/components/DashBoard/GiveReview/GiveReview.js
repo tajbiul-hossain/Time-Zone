@@ -50,7 +50,7 @@ const GiveReview = () => {
       review,
     };
 
-    fetch("http://localhost:5000/placereview", {
+    fetch("https://still-woodland-16821.herokuapp.com/placereview", {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -59,7 +59,7 @@ const GiveReview = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.matchedCount > 0) {
+        if (data.matchedCount > 0 || data.upsertedCount > 0) {
           setModalShow(true);
         }
       });

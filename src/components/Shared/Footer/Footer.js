@@ -20,7 +20,7 @@ const Footer = () => {
             <ul className="footer-list">
               <li style={{ fontWeight: "300" }}>
                 <FontAwesomeIcon icon={faMapMarkerAlt} />
-                28 Runkin Street, Chittagong, 1123 Bangladesh
+                36, 1 Rankin St, Dhaka 1203, Bangladesh
               </li>
               <li style={{ fontWeight: "300" }}>
                 <FontAwesomeIcon icon={faPhoneAlt} />
