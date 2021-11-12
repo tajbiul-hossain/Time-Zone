@@ -125,7 +125,7 @@ const ManageProducts = () => {
       </div>
       <div className="mt-3">
         <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 991 }} aria-label="simple table">
+          <Table aria-label="simple table">
             <TableHead>
               <TableRow>
                 <TableCell align="start">Id</TableCell>

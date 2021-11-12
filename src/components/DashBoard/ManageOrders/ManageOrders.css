@@ -29,16 +29,26 @@
 
 @media only screen and (max-width: 991px) {
   .manage-orders .section-banner-title {
-    font-size: 5rem;
+    font-size: 4.5rem;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .container.manage-orders,
+  .container.my-orders,
+  .container.manage-products {
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
   }
 }
 
 @media only screen and (max-width: 768px) {
-  .container.manage-orders {
-    width: 100% !important;
-    margin: 0;
-  }
   .manage-orders .section-banner-title {
-    font-size: 3.7rem;
+    font-size: 3rem;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .manage-orders .section-banner-title {
+    font-size: 2rem;
   }
 }

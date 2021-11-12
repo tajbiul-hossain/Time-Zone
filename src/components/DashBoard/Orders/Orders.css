@@ -22,3 +22,15 @@
 .my-orders .green {
   color: #0cb931;
 }
+
+@media only screen and (max-width: 576px) {
+  .my-orders .section-banner-title {
+    font-size: 3rem;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .my-orders .section-banner-title {
+    font-size: 2rem;
+  }
+}

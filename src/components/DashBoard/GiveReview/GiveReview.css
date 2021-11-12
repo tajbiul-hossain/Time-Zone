@@ -20,13 +20,35 @@
     font-size: 6rem;
   }
 }
+
 @media only screen and (max-width: 991px) {
   .review-section .section-banner-title {
     font-size: 5.3rem;
   }
 }
+
 @media only screen and (max-width: 768px) {
   .review-section .section-banner-title {
     font-size: 4rem;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .review-section .section-banner-title {
+    font-size: 2.5rem;
+  }
+  .review-section form .form-floating .form-control,
+  .review-section form .form-floating .form-select {
+    width: 25rem;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .review-section .section-banner-title {
+    font-size: 1.8rem;
+  }
+  .review-section form .form-floating .form-control,
+  .review-section form .form-floating .form-select {
+    width: 20rem;
   }
 }

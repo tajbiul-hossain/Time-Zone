@@ -255,10 +255,9 @@ function Dashboard(props) {
         sx={{
           flexGrow: 1,
           p: 3,
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
-
           backgroundColor: "#fff",
           color: "#141414",
+          width: "100%",
         }}
       >
         <Toolbar />

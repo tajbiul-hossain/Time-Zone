@@ -33,6 +33,17 @@
 
 @media only screen and (max-width: 768px) {
   .manage-products .section-banner-title {
-    font-size: 3.2rem;
+    font-size: 3rem;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .manage-products .section-banner-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .manage-products .section-banner-title {
+    font-size: 1rem;
   }
 }
