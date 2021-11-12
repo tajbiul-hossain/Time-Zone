@@ -21,7 +21,7 @@ import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import AddBoxOutlinedIcon from "@mui/icons-material/AddBoxOutlined";
 import RemoveCircleOutlineOutlinedIcon from "@mui/icons-material/RemoveCircleOutlineOutlined";
 import PersonAddOutlinedIcon from "@mui/icons-material/PersonAddOutlined";
-import { Switch, Route, useRouteMatch, Link } from "react-router-dom";
+import { Switch, useRouteMatch, Link } from "react-router-dom";
 import MakePayment from "../MakePayment/MakePayment";
 import AddNewProduct from "../AddNewProduct/AddNewProduct";
 import ManageOrders from "../ManageOrders/ManageOrders";
@@ -32,6 +32,7 @@ import GiveReview from "../GiveReview/GiveReview";
 import "./Dashboard.css";
 import useAuth from "../../../hooks/useAuth";
 import AdminRoute from "../../AdminRoute/AdminRoute";
+import PrivateRoute from "../../PrivateRoute/PrivateRoute";
 const drawerWidth = 220;
 
 function Dashboard(props) {
@@ -261,39 +262,40 @@ function Dashboard(props) {
         }}
       >
         <Toolbar />
-        <Switch>
-          {!admin && (
-            <Route exact path={path}>
-              <Orders />
-            </Route>
-          )}
-          {admin && (
-            <Route exact path={path}>
+        {admin ? (
+          <Switch>
+            <AdminRoute exact path={path}>
               <ManageOrders />
-            </Route>
-          )}
-          <Route path={`${path}/orders`}>
-            <Orders />
-          </Route>
-          <Route path={`${path}/payment`}>
-            <MakePayment />
-          </Route>
-          <Route path={`${path}/review`}>
-            <GiveReview />
-          </Route>
-          <AdminRoute path={`${path}/manage-orders`}>
-            <ManageOrders />
-          </AdminRoute>
-          <AdminRoute path={`${path}/add-product`}>
-            <AddNewProduct />
-          </AdminRoute>
-          <AdminRoute path={`${path}/manage-products`}>
-            <ManageProducts />
-          </AdminRoute>
-          <AdminRoute path={`${path}/make-admin`}>
-            <MakeAdmin />
-          </AdminRoute>
-        </Switch>
+            </AdminRoute>
+            <AdminRoute path={`${path}/manage-orders`}>
+              <ManageOrders />
+            </AdminRoute>
+            <AdminRoute path={`${path}/add-product`}>
+              <AddNewProduct />
+            </AdminRoute>
+            <AdminRoute path={`${path}/manage-products`}>
+              <ManageProducts />
+            </AdminRoute>
+            <AdminRoute path={`${path}/make-admin`}>
+              <MakeAdmin />
+            </AdminRoute>
+          </Switch>
+        ) : (
+          <Switch>
+            <PrivateRoute exact path={path}>
+              <Orders />
+            </PrivateRoute>
+            <PrivateRoute path={`${path}/orders`}>
+              <Orders />
+            </PrivateRoute>
+            <PrivateRoute path={`${path}/payment`}>
+              <MakePayment />
+            </PrivateRoute>
+            <PrivateRoute path={`${path}/review`}>
+              <GiveReview />
+            </PrivateRoute>
+          </Switch>
+        )}
       </Box>
     </Box>
   );
