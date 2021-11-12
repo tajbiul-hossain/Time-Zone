@@ -91,8 +91,10 @@ const GiveReview = () => {
                 <Form.Floating className="mb-3">
                   <Form.Control
                     id="floatingInputCustom"
-                    type="text"
+                    as="textarea"
+                    style={{ height: "100px" }}
                     ref={reviewRef}
+                    required
                   />
                   <label htmlFor="floatingInputCustom">
                     Share Your Thoughts

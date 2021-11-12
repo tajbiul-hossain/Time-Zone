@@ -82,9 +82,10 @@ const AddNewProduct = () => {
                 Product Description
               </Form.Label>
               <Form.Control
-                type="texr"
-                ref={DescRef}
+                as="textarea"
+                style={{ height: "80px" }}
                 placeholder="Description"
+                ref={DescRef}
                 required
               />
             </Form.Group>
