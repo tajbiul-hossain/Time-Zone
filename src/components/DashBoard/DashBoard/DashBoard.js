@@ -21,7 +21,7 @@ import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import AddBoxOutlinedIcon from "@mui/icons-material/AddBoxOutlined";
 import RemoveCircleOutlineOutlinedIcon from "@mui/icons-material/RemoveCircleOutlineOutlined";
 import PersonAddOutlinedIcon from "@mui/icons-material/PersonAddOutlined";
-import { Switch, useRouteMatch, Link } from "react-router-dom";
+import { Switch, useRouteMatch, Link, useHistory } from "react-router-dom";
 import MakePayment from "../MakePayment/MakePayment";
 import AddNewProduct from "../AddNewProduct/AddNewProduct";
 import ManageOrders from "../ManageOrders/ManageOrders";
@@ -29,7 +29,6 @@ import ManageProducts from "../ManageProducts/ManageProducts";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
 import Orders from "../Orders/Orders";
 import GiveReview from "../GiveReview/GiveReview";
-import "./Dashboard.css";
 import useAuth from "../../../hooks/useAuth";
 import AdminRoute from "../../AdminRoute/AdminRoute";
 import PrivateRoute from "../../PrivateRoute/PrivateRoute";
@@ -40,6 +39,7 @@ function Dashboard(props) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   let { path, url } = useRouteMatch();
   const { user, admin, logOut } = useAuth();
+  const history = useHistory();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -169,7 +169,7 @@ function Dashboard(props) {
       )}
       <Divider sx={{ color: "#fff" }} />
       <List sx={{ paddingLeft: "1rem", color: "#fff" }}>
-        <ListItem button onClick={() => logOut()}>
+        <ListItem button onClick={() => logOut(history)}>
           <ListItemIcon>
             <LogoutOutlinedIcon sx={{ fontSize: 30, color: "#fff" }} />
           </ListItemIcon>

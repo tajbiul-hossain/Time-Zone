@@ -56,11 +56,12 @@ const useFirebase = () => {
     });
   };
 
-  const logOut = () => {
+  const logOut = (history) => {
     setIsLoading(true);
     signOut(auth)
       .then(() => {
         setUser({});
+        history.push("/");
       })
       .finally(() => setIsLoading(false));
   };

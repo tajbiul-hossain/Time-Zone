@@ -1,12 +1,13 @@
 import React from "react";
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
-import { NavLink, Link, useLocation } from "react-router-dom";
+import { Container, Nav, Navbar } from "react-bootstrap";
+import { NavLink, Link, useLocation, useHistory } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import "./Header.css";
 
 const Header = () => {
   const { user, logOut } = useAuth();
   const location = useLocation();
+  const history = useHistory();
   return (
     <>
       <Navbar variant="dark" collapseOnSelect expand="lg">
@@ -42,7 +43,7 @@ const Header = () => {
                   <span>Dashboard</span>
                 </Nav.Link>
                 <button
-                  onClick={logOut}
+                  onClick={() => logOut(history)}
                   className="btn default-btn register-btn"
                 >
                   Log out
