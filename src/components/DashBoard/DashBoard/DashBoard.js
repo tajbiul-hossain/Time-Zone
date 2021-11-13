@@ -32,6 +32,7 @@ import GiveReview from "../GiveReview/GiveReview";
 import useAuth from "../../../hooks/useAuth";
 import AdminRoute from "../../AdminRoute/AdminRoute";
 import PrivateRoute from "../../PrivateRoute/PrivateRoute";
+import Notfound from "../../NotFound/Notfound";
 const drawerWidth = 220;
 
 function Dashboard(props) {
@@ -60,54 +61,7 @@ function Dashboard(props) {
         </ListItem>
       </List>
       <Divider sx={{ color: "#fff" }} />
-      {!admin && (
-        <List sx={{ paddingLeft: "1rem" }}>
-          <Link to={"/"} style={{ color: "#fff", textDecoration: "none" }}>
-            <ListItem>
-              <ListItemIcon>
-                <HomeOutlinedIcon sx={{ fontSize: 30, color: "#fff" }} />
-              </ListItemIcon>
-              <ListItemText primary="Home" />
-            </ListItem>
-          </Link>
-          <Link
-            to={`${url}/orders`}
-            style={{ color: "#fff", textDecoration: "none" }}
-          >
-            <ListItem>
-              <ListItemIcon>
-                <ShoppingCartOutlinedIcon
-                  sx={{ fontSize: 30, color: "#fff" }}
-                />
-              </ListItemIcon>
-              <ListItemText primary="My Orders" />
-            </ListItem>
-          </Link>
-          <Link
-            to={`${url}/payment`}
-            style={{ color: "#fff", textDecoration: "none" }}
-          >
-            <ListItem>
-              <ListItemIcon>
-                <PaymentOutlinedIcon sx={{ fontSize: 30, color: "#fff" }} />
-              </ListItemIcon>
-              <ListItemText primary="Payment" />
-            </ListItem>
-          </Link>
-          <Link
-            to={`${url}/review`}
-            style={{ color: "#fff", textDecoration: "none" }}
-          >
-            <ListItem>
-              <ListItemIcon>
-                <StarBorderOutlinedIcon sx={{ fontSize: 30, color: "#fff" }} />
-              </ListItemIcon>
-              <ListItemText primary="Review" />
-            </ListItem>
-          </Link>
-        </List>
-      )}
-      {admin && (
+      {admin ? (
         <List sx={{ paddingLeft: "1rem" }}>
           <Link to={"/"} style={{ color: "#fff", textDecoration: "none" }}>
             <ListItem>
@@ -166,6 +120,52 @@ function Dashboard(props) {
             </ListItem>
           </Link>
         </List>
+      ) : (
+        <List sx={{ paddingLeft: "1rem" }}>
+          <Link to={"/"} style={{ color: "#fff", textDecoration: "none" }}>
+            <ListItem>
+              <ListItemIcon>
+                <HomeOutlinedIcon sx={{ fontSize: 30, color: "#fff" }} />
+              </ListItemIcon>
+              <ListItemText primary="Home" />
+            </ListItem>
+          </Link>
+          <Link
+            to={`${url}/orders`}
+            style={{ color: "#fff", textDecoration: "none" }}
+          >
+            <ListItem>
+              <ListItemIcon>
+                <ShoppingCartOutlinedIcon
+                  sx={{ fontSize: 30, color: "#fff" }}
+                />
+              </ListItemIcon>
+              <ListItemText primary="My Orders" />
+            </ListItem>
+          </Link>
+          <Link
+            to={`${url}/payment`}
+            style={{ color: "#fff", textDecoration: "none" }}
+          >
+            <ListItem>
+              <ListItemIcon>
+                <PaymentOutlinedIcon sx={{ fontSize: 30, color: "#fff" }} />
+              </ListItemIcon>
+              <ListItemText primary="Payment" />
+            </ListItem>
+          </Link>
+          <Link
+            to={`${url}/review`}
+            style={{ color: "#fff", textDecoration: "none" }}
+          >
+            <ListItem>
+              <ListItemIcon>
+                <StarBorderOutlinedIcon sx={{ fontSize: 30, color: "#fff" }} />
+              </ListItemIcon>
+              <ListItemText primary="Review" />
+            </ListItem>
+          </Link>
+        </List>
       )}
       <Divider sx={{ color: "#fff" }} />
       <List sx={{ paddingLeft: "1rem", color: "#fff" }}>
@@ -181,7 +181,6 @@ function Dashboard(props) {
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
-
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -267,32 +266,38 @@ function Dashboard(props) {
             <AdminRoute exact path={path}>
               <ManageOrders />
             </AdminRoute>
-            <AdminRoute path={`${path}/manage-orders`}>
+            <AdminRoute exact path={`${path}/manage-orders`}>
               <ManageOrders />
             </AdminRoute>
-            <AdminRoute path={`${path}/add-product`}>
+            <AdminRoute exact path={`${path}/add-product`}>
               <AddNewProduct />
             </AdminRoute>
-            <AdminRoute path={`${path}/manage-products`}>
+            <AdminRoute exact path={`${path}/manage-products`}>
               <ManageProducts />
             </AdminRoute>
-            <AdminRoute path={`${path}/make-admin`}>
+            <AdminRoute exact path={`${path}/make-admin`}>
               <MakeAdmin />
             </AdminRoute>
+            <PrivateRoute path={`${path}/*`}>
+              <Notfound />
+            </PrivateRoute>
           </Switch>
         ) : (
           <Switch>
             <PrivateRoute exact path={path}>
               <Orders />
             </PrivateRoute>
-            <PrivateRoute path={`${path}/orders`}>
+            <PrivateRoute exact path={`${path}/orders`}>
               <Orders />
             </PrivateRoute>
-            <PrivateRoute path={`${path}/payment`}>
+            <PrivateRoute exact path={`${path}/payment`}>
               <MakePayment />
             </PrivateRoute>
-            <PrivateRoute path={`${path}/review`}>
+            <PrivateRoute exact path={`${path}/review`}>
               <GiveReview />
+            </PrivateRoute>
+            <PrivateRoute path={`${path}/*`}>
+              <Notfound />
             </PrivateRoute>
           </Switch>
         )}

@@ -128,9 +128,9 @@ const ManageProducts = () => {
           <Table aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell align="start">Id</TableCell>
-                <TableCell align="start">Product Name</TableCell>
-                <TableCell align="start">Description</TableCell>
+                <TableCell>Id</TableCell>
+                <TableCell>Product Name</TableCell>
+                <TableCell>Description</TableCell>
                 <TableCell align="center">Price</TableCell>
                 <TableCell align="center">Remove</TableCell>
               </TableRow>

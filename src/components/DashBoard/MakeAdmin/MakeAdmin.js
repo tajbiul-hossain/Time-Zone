@@ -88,10 +88,10 @@ const MakeAdmin = () => {
           <Table sx={{ minWidth: 991 }} aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell align="start">User Name</TableCell>
-                <TableCell align="start">User Email</TableCell>
-                <TableCell align="start">Role</TableCell>
-                <TableCell align="start">Update Role</TableCell>
+                <TableCell>User Name</TableCell>
+                <TableCell>User Email</TableCell>
+                <TableCell>Role</TableCell>
+                <TableCell>Update Role</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>

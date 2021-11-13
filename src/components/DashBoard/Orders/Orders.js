@@ -94,7 +94,7 @@ const Orders = () => {
         setOrders(data);
         setLoading(false);
       });
-  }, [user.email, token, history]);
+  }, [user.email, token, history, orders]);
 
   const showModal = (id) => {
     setOrderId(id);

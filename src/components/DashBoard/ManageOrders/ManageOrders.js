@@ -120,7 +120,7 @@ const ManageOrders = () => {
         setOrders(data);
         setLoading(false);
       });
-  }, [user.email, token, history]);
+  }, [user.email, token, history, orders]);
 
   const showModal = (id) => {
     setOrderId(id);
@@ -194,8 +194,8 @@ const ManageOrders = () => {
             <Table aria-label="simple table">
               <TableHead>
                 <TableRow>
-                  <TableCell align="start">Customer Details</TableCell>
-                  <TableCell align="start">Product Name</TableCell>
+                  <TableCell>Customer Details</TableCell>
+                  <TableCell>Product Name</TableCell>
                   <TableCell align="center">Price</TableCell>
                   <TableCell align="center">Quantity</TableCell>
                   <TableCell align="center">Total</TableCell>
