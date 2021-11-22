@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Modal } from "react-bootstrap";
 import useAuth from "../../../hooks/useAuth";
 import Table from "@mui/material/Table";
@@ -101,7 +101,7 @@ const Orders = () => {
     setDialogModalShow(true);
   };
 
-  //Delete Booking
+  //Delete Order
   const handleDeleteOrder = (id) => {
     const url = `https://still-woodland-16821.herokuapp.com/order/${id}`;
     fetch(url, {
@@ -111,9 +111,7 @@ const Orders = () => {
       .then((data) => {
         if (data.deletedCount > 0) {
           setConfirmModalShow(true);
-          const remainingOrders = orders.filter(
-            (booking) => booking._id !== id
-          );
+          const remainingOrders = orders.filter((order) => order._id !== id);
           setOrders(remainingOrders);
         }
       });
@@ -171,20 +169,22 @@ const Orders = () => {
                     </TableCell>
                     <TableCell
                       align="right"
-                      className={order.status === "Pending" ? "red" : "green"}
+                      className={
+                        order.status === "payment pending" ? "red" : "green"
+                      }
                     >
                       {order.status}
                     </TableCell>
                     <TableCell align="right">
                       <button
                         className={
-                          order.status === "Pending"
+                          order.status === "payment pending"
                             ? "btn default-btn cancel-btn"
                             : "btn default-btn cancel-btn disabled"
                         }
                         onClick={() => showModal(order._id)}
                       >
-                        Cancel
+                        Remove
                       </button>
                     </TableCell>
                   </TableRow>
@@ -192,6 +192,11 @@ const Orders = () => {
               </TableBody>
             </Table>
           </TableContainer>
+          <Link to="/dashboard/payment">
+            <button className="mt-3 btn default-btn cancel-btn">
+              Complete Payment
+            </button>
+          </Link>
         </div>
       )}
       <DialogModal

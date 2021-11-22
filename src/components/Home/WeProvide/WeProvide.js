@@ -4,21 +4,21 @@ const WeProvide = () => {
   return (
     <div className="bg-white">
       <div className="container">
-        <div class="row review-count text-capitalize text-md-start py-5">
-          <div class="col-12 col-md-6 col-lg-3 text-center">
-            <h1 class="count">2536</h1>
+        <div className="row review-count text-capitalize text-md-start py-5">
+          <div className="col-12 col-md-6 col-lg-3 text-center">
+            <h1 className="count">2536</h1>
             <p>happy clients</p>
           </div>
-          <div class="col-12 col-md-6 col-lg-3 text-center">
-            <h1 class="count">2013</h1>
+          <div className="col-12 col-md-6 col-lg-3 text-center">
+            <h1 className="count">2013</h1>
             <p>Models</p>
           </div>
-          <div class="col-12 col-md-6 col-lg-3 text-center">
-            <h1 class="count">10536</h1>
+          <div className="col-12 col-md-6 col-lg-3 text-center">
+            <h1 className="count">10536</h1>
             <p>Purchases</p>
           </div>
-          <div class="col-12 col-md-6 col-lg-3 text-center">
-            <h1 class="count">7562</h1>
+          <div className="col-12 col-md-6 col-lg-3 text-center">
+            <h1 className="count">7562</h1>
             <p>Deliveries</p>
           </div>
         </div>
@@ -30,7 +30,7 @@ const WeProvide = () => {
           <div className="row text-center">
             <div className="col-md-4">
               <div className="feature">
-                <i class="far fa-clock fa-3x"></i>
+                <i className="far fa-clock fa-3x"></i>
                 <h3>Quality Watches</h3>
                 <p>Find what is best suited for you </p>
               </div>
@@ -44,7 +44,7 @@ const WeProvide = () => {
             </div>
             <div className="col-md-4">
               <div className="feature">
-                <i class="fas fa-receipt fa-3x"></i>
+                <i className="fas fa-receipt fa-3x"></i>
                 <h3>Secured Transactions</h3>
                 <p>Your transaction history is safe with us</p>
               </div>

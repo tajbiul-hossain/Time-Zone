@@ -1,0 +1,7 @@
+.checkout-form .default-btn {
+  padding: 1rem;
+}
+
+.checkout-form .default-btn::before {
+  background-color: #1fb683;
+}

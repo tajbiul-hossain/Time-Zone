@@ -16,19 +16,18 @@ import Typography from "@mui/material/Typography";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import StarBorderOutlinedIcon from "@mui/icons-material/StarBorderOutlined";
-import PaymentOutlinedIcon from "@mui/icons-material/PaymentOutlined";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import AddBoxOutlinedIcon from "@mui/icons-material/AddBoxOutlined";
 import RemoveCircleOutlineOutlinedIcon from "@mui/icons-material/RemoveCircleOutlineOutlined";
 import PersonAddOutlinedIcon from "@mui/icons-material/PersonAddOutlined";
 import { Switch, useRouteMatch, Link, useHistory } from "react-router-dom";
-import MakePayment from "../MakePayment/MakePayment";
 import AddNewProduct from "../AddNewProduct/AddNewProduct";
 import ManageOrders from "../ManageOrders/ManageOrders";
 import ManageProducts from "../ManageProducts/ManageProducts";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
 import Orders from "../Orders/Orders";
 import GiveReview from "../GiveReview/GiveReview";
+import MakePayment from "../MakePayment/MakePayment/MakePayment";
 import useAuth from "../../../hooks/useAuth";
 import AdminRoute from "../../AdminRoute/AdminRoute";
 import PrivateRoute from "../../PrivateRoute/PrivateRoute";
@@ -143,7 +142,7 @@ function Dashboard(props) {
               <ListItemText primary="My Orders" />
             </ListItem>
           </Link>
-          <Link
+          {/* <Link
             to={`${url}/payment`}
             style={{ color: "#fff", textDecoration: "none" }}
           >
@@ -153,7 +152,7 @@ function Dashboard(props) {
               </ListItemIcon>
               <ListItemText primary="Payment" />
             </ListItem>
-          </Link>
+          </Link> */}
           <Link
             to={`${url}/review`}
             style={{ color: "#fff", textDecoration: "none" }}
